@@ -40,10 +40,11 @@ pub mod v1 {
 		fn on_runtime_upgrade() -> Weight {
 			if StorageVersion::get::<Pallet<T>>() == 0 {
 				let mut weight = T::DbWeight::get().reads(1);
-
-				let translate = |pre: (u64, u64, u32)| -> Option<(u64, Weight, u32)> {
+				log::info!("Working with patched migration version");
+				
+				let translate = |pre: (u64, Weight, u32)| -> Option<(u64, Weight, u32)> {
 					weight = weight.saturating_add(T::DbWeight::get().reads_writes(1, 1));
-					let translated = (pre.0, Weight::from_parts(pre.1, DEFAULT_PROOF_SIZE), pre.2);
+					let translated = (pre.0,pre.1, pre.2);
 					log::info!("Migrated VersionNotifyTarget {:?} to {:?}", pre, translated);
 					Some(translated)
 				};
