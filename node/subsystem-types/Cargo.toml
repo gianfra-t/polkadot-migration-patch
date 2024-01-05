@@ -23,4 +23,4 @@ sc-transaction-pool-api = { git = "https://github.com/paritytech/substrate", bra
 smallvec = "1.8.0"
 substrate-prometheus-endpoint = { git = "https://github.com/paritytech/substrate", branch = "master" }
 thiserror = "1.0.31"
-async-trait = "0.1.57"
+async-trait = "0.1.77"
