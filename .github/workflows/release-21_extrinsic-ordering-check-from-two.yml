@@ -85,7 +85,7 @@ jobs:
           cat output.txt
 
       - name: Save output as artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.chain }}
           path: |
