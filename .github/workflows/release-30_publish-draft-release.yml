@@ -50,13 +50,13 @@ jobs:
           echo '${{ steps.srtool_build.outputs.json }}' | jq > ${{ matrix.runtime }}_srtool_output.json
 
       - name: Upload ${{ matrix.runtime }} srtool json
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.runtime }}-srtool-json
           path: ${{ matrix.runtime }}_srtool_output.json
 
       - name: Upload ${{ matrix.runtime }} runtime
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.runtime }}-runtime
           path: |
@@ -121,7 +121,7 @@ jobs:
           ls -al context.json
 
       - name: Archive artifact context.json
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: release-notes-context
           path: |
